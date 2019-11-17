@@ -9,7 +9,10 @@ class Center():
 		self.settings = settings 
 		# 初始化信誉度矩阵
 		self.allTrustworthiness = self.initTW()
+		# 初始化评价的矩阵
+		self.evaluateMatrix = self.initEM()
 
+	#初始化信誉度
 	def initTW(self):
 		"""初始化信誉度的值"""
 		tw = []
@@ -17,7 +20,8 @@ class Center():
 			tw.append(1)
 		return np.array(tw)
 
-	def resetTW(self, tw=[1,1,1,1]):
+	# 重新设定成员信誉度的值
+	def resetTW(self, tw=[1,1,1,1]):   
 		"""
 		重新设定成员信誉度的初始值
 		默认为最开始的全是1，也能够传入所有成员信誉度的数组
@@ -30,13 +34,24 @@ class Center():
 		if len(tw) != self.settings.totolEnterprise:
 			while(len(tw)!=self.settings.totolEnterprise):
 				tw = np.append(tw,1)		# 往后面增加1
-		self.allTrustworthiness = tw 
+		self.allTrustworthiness = tw
 
-settings = Settings() 
-center = Center(settings)
-print(center.allTrustworthiness)
-center.resetTW([1,2,3])
-print(center.allTrustworthiness)
-center.resetTW()
-print(center.allTrustworthiness)
-a = np.array([1,2,3,4,5,6])
+	# 初始化评价矩阵
+	def initEM(self):
+		em = [[0 for i in range(self.settings.totolEnterprise)] \
+		for j in range(self.settings.totolEnterprise)]
+		return np.array(em)
+
+	# 获取各参与方评价矩阵
+
+	# 收集各参与方的信誉度
+
+
+# settings = Settings() 
+# center = Center(settings)
+# print(center.allTrustworthiness)
+# center.resetTW([1,2,3])
+# print(center.allTrustworthiness)
+# center.resetTW()
+# print(center.allTrustworthiness)
+# a = np.array([1,2,3,4,5,6])
