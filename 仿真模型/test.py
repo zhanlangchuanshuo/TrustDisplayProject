@@ -37,14 +37,25 @@
 # # ax.plot_surface(X,Y,R2,rstride=1,cstride=1,cmap='rainbow')
 # plt.show()
 
-import numpy as np
-import matplotlib.pyplot as plt
-# print(np.sqrt(2))
+# import numpy as np
+# import matplotlib.pyplot as plt
+# # print(np.sqrt(2))
 
-x = np.arange(0,10,0.1)
-y = x/(x+1)
-plt.plot(x,y)
-plt.show()
+# x = np.arange(0,10,0.1)
+# y = x/(x+1)
+# plt.plot(x,y)
+# plt.show()
+import numpy as np
+print(np.random.uniform())
+def transform(a):
+	for i in range(len(a)):
+		for j in range(i,len(a)):
+			t = a[i][j]
+			a[i][j] = a[j][i]
+			a[j][i] = t 
+a = [[1,2,3],[4,5,6],[7,8,9]]
+transform(a)
+print(a)
 
 
 
